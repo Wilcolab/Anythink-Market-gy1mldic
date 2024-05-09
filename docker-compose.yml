@@ -47,3 +47,12 @@ services:
       - ~/mongo/data:/data/db
     ports:
       - '27017:27017'
+
+  anythink-ack:
+    image: public.ecr.aws/v0a2l7y2/wilco/anythink-ack:latest
+    container_name: anythink-ack
+    environment:
+      - GITHUB_TOKEN=$GITHUB_TOKEN
+      - CODESPACE_NAME=$CODESPACE_NAME
+    depends_on:
+      - "anythink-frontend-react" 
